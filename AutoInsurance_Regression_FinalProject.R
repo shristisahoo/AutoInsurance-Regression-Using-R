@@ -1,17 +1,10 @@
-#------- FINAL PROJECT CASE STUDY -----------
-
 #------ Automobile Insurance Company -------
 
-# STEP-1
-#Identifying the Problem Statement
 #Problem Statement: To predict Customer Life time Value (CLV)[Total Revenue] 
 #for an auto insurance company
 
-#STEP-2
-#Identifying the Target Variable
 #Target Variable: Customer Lifetime Value
 
-#STEP-3
 #Importing Raw Data
 AutoInsurance_Data=read.csv("C:/Users/SHRISTI SAHOO/Desktop/analytics/R Prog/Shristi Sahoo - Final R Project IVY/Final R Project IVY/Fn-UseC_-Marketing-Customer-Value-Analysis.csv",
                             na.strings = c(""," ","NA","NULL"),stringsAsFactors = T)
@@ -19,7 +12,6 @@ View(AutoInsurance_Data)
 #Target Variable is Customer Lifetime Value can be viewed
 #Customer Lifetime Value is a continuous column
 
-#STEP-4
 #Exploring the Dataset
 
 dim(AutoInsurance_Data)
@@ -246,7 +238,6 @@ AutoInsurance_Data$Effective.To.Date=NULL
 
 head(AutoInsurance_Data)
 
-#STEP-5
 #Checking if all the categorical column are factor or not if not it needs to be converted 
 #into factor
 
@@ -261,20 +252,17 @@ AutoInsurance_Data$Type.of.Policies=as.factor(AutoInsurance_Data$Type.of.Policie
 
 str(AutoInsurance_Data)
 
-#STEP-6
 #Identifying the Problem Type
 
 #Target Variable: Customer Lifetime Value
 #Type of Problem : Linear Regression
 
-#STEP-7
 #Checking and Treating Missing Values
 
 colSums(is.na(AutoInsurance_Data))
 
 #No Missing Values 
 
-#STEP-8
 #Winsorization
 #Checking the presence of outliers by creating boxplots and treating the outliers
 
@@ -392,7 +380,6 @@ for(bar_cols in cate_cols){
           col=brewer.pal(8,"Paired"))
 }
 
-#STEP-10
 #Bivariate Analysis
 #Visual Relationship between Predictors and Target Variable
 
@@ -411,7 +398,6 @@ for(box_cols in cate_cols){
           col=brewer.pal(8,"Paired"))
 }
 
-# STEP-11
 # Strength of Relationship between predictor and target variable
 
 # Continuous Vs Continuous -> Correlation test
@@ -454,7 +440,6 @@ for (aov_cols in cate_cols){
 #Type.of.Policies,Renew.Offer.Type,Vehicle.Class are rejected by Null Hypothesis
 #Hence are correlated with the target variable  and considered for the model.
 
-#STEP-12
 #Generating Data for ML
 #Getting Data into Standardization Form
 
@@ -476,7 +461,6 @@ str(PredictorVariable)
 Data_ML=data.frame(TargetVariable,PredictorVariable)
 head(Data_ML)
 
-#STEP-13
 #Performing Sampling
 
 # Sampling | Splitting data into 70% for training 30% for testing
